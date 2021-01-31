@@ -1,0 +1,52 @@
+config:
+    name: shoppingCart
+testSteps:
+    -
+        name: myCartResult
+        request:
+            url: api/knightCard/cart/v2_0/myCartResult
+            method: post
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+                appid: ${appid}
+            json:
+                list: null
+                phpUserId: ${phpUserId}
+        extract:
+            goodsId: "$.data.list[0].saleList[0].list[0].goodsId"
+            skuId: "$.data.list[0].saleList[0].list[0].skuId"
+            isSelect: "$.data.list[0].saleList[0].list[0].isSelect"
+            buyCount: "$.data.list[0].saleList[0].list[0].goodsNumber"
+            length: "$.data.list.length()"
+        export: ["goodsId", "skuId", "buyCount", "length", "isSelect"]
+        validate:
+            greaterThan:
+                length: ["Integer", 0]
+                buyCount: ["Integer", 0]
+    -
+        name: noneSelect
+        request:
+            url: api/knightCard/cart/v2_0/myCartResult
+            method: post
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+            json:
+                list:
+                    -
+                        buyCount: ${buyCount}
+                        goodsId: ${goodsId}
+                        skuId: ${skuId}
+                        isSelect: 0
+                phpUserId: ${phpUserId}
+        extract:
+            isSelect: "$.data.list[0].saleList[0].list[0].isSelect"
+            totalPrice: "$.data.totalPrice"
+            id: "$.data.list[0].saleList[0].list[0].id"
+        export: [isSelect, totalPrice, id]
+        validate:
+            equalTo:
+                isSelect: ["Integer", 0]

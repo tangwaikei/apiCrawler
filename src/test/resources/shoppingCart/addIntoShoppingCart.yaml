@@ -1,0 +1,29 @@
+name: addIntoShoppingCart
+request:
+    url: api/knightCard/cart/v1_0/add
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        buyNumber: ${buyNumber}
+#        dataAbTest: ${pageAbTest}2
+        goodsId: ${goodsId}
+        pageAbTest: ${pageAbTest}
+        goodsOrderPreList:
+            -
+                goodsProId: ${goodsProId0}
+                goodsProValueId: ${goodsProValueId0}
+            -
+                goodsProId: ${goodsProId1}
+                goodsProValueId: ${goodsProValueId1}
+extract:
+    cartId: "$.data.cartId"
+    code: "$.code"
+validate:
+    equalTo:
+        code: ["Integer", 200]
+    greaterThan:
+        cartId: ["Integer", 0]
