@@ -1,0 +1,12 @@
+name: classification
+request:
+    url: api/knightCard/goods/v1_0/goodsTypes
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        channel: 2
+        fenceId: ${fenceId}
