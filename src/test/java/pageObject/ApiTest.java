@@ -3,22 +3,30 @@ package pageObject;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.stream.Stream;
 
 public class ApiTest {
 
-    @ParameterizedTest(name = "{index} {1}")
-    @MethodSource
-    void apiTest() {
-
-
+    @ParameterizedTest
+    @MethodSource("loadTestCases")
+    void apiTest(InputStream inputStream) throws IOException {
+        if(null != inputStream) {
+            String env = "pro";//System.getenv("env");
+            TestCaseProcess process = new TestCaseProcess(env);
+            TestCaseModel testCaseModel = TestCaseModel.load2(inputStream);
+            testCaseModel.run(process);
+        }
     }
 
-    static List<Arguments> loadTestCases() {
-        List<Arguments> testCases = new ArrayList<>();
-
-        return testCases;
+    static Stream<Arguments> loadTestCases() {
+        return Stream.of(
+                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\shopCrawler.yaml")),
+                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\shoppingCartCalc.yaml")),
+                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\delShoppingCart.yaml")),
+                Arguments.arguments(ApiTest.class.getResourceAsStream("home\\homeSelective.yaml")),
+                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\goodsTypeCrawler.yaml"))
+        );
     }
 }

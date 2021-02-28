@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.ReadContext;
 import io.restassured.response.Response;
+import util.function;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,11 +22,10 @@ import static io.restassured.RestAssured.given;
 public class TestCaseProcess {
     protected Parameters params;
     protected Map<String, Restful> restfulList = new HashMap<>();
-    final String globalYamlPath = "D:\\Java\\code\\apiCrawler\\src\\test\\resources\\config\\global.yaml";
 
     public TestCaseProcess(String env) throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        Parameters parameters = mapper.readValue(new File(globalYamlPath), Parameters.class);
+        Parameters parameters = mapper.readValue(TestCaseProcess.class.getResourceAsStream(function.globalConfigYamlPath), Parameters.class);
         Map<String, Object> parameterMap = (Map<String, Object>) parameters.getParameters().get(env);
         parameters.setParameters(parameterMap);
         this.params = parameters;
