@@ -1,4 +1,4 @@
-package base;
+package pageObject;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,4 +1,4 @@
-package base;
+package pageObject;
 
 import java.util.HashMap;
 import java.util.Map;

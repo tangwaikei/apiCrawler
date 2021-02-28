@@ -1,4 +1,4 @@
-package base;
+package pageObject;
 
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
