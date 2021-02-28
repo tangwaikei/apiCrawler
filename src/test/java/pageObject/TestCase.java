@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class TestCase {
     public String name; //用来存储到数据库
-    public NewRequest request;
+    public Request request;
     public List<String> export;
     public Map<String, String> extract;
     public Map<String, Map<String, Object>> validate;
@@ -14,7 +14,7 @@ public class TestCase {
         this.name = name;
     }
 
-    public void setRequest(NewRequest request) {
+    public void setRequest(Request request) {
         this.request = request;
     }
 
@@ -30,7 +30,7 @@ public class TestCase {
         this.validate = validate;
     }
 
-    public NewRequest getRequest() {
+    public Request getRequest() {
         return this.request;
     }
 

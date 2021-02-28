@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class NewRequest {
+public class Request {
     public String url;
     public String method;
     public Map<String, Object> headers;

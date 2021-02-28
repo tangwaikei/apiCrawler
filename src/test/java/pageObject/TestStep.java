@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.jayway.jsonpath.PathNotFoundException;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -57,7 +56,7 @@ public class TestStep extends TestCase {
                 ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
                 TestCase testCase1 = mapper.readValue(TestStep.class.getResourceAsStream(testcase), TestCase.class);
 
-                NewRequest request = testCase1.getRequest();
+                Request request = testCase1.getRequest();
                 if(null != request) {
                     this.request = request;
                 }
@@ -294,7 +293,7 @@ public class TestStep extends TestCase {
     /*
     * 将替换好的内容，发送请求
      */
-    private void runRequest() throws IOException {
+    private void run() throws IOException {
         Restful restful = this.request.toRequest();
         process.addRestful(this.name, restful);
         if(null != extract) {
@@ -353,16 +352,16 @@ public class TestStep extends TestCase {
 
     public void toRunStep() throws IOException {
         loadTestCase();
-        System.out.println("after loadTestCase");
-        process.print();
+//        System.out.println("after loadTestCase");
+//        process.print();
         replaceVariables();
-        System.out.println("after replaceVariables");
-        process.print();
+//        System.out.println("after replaceVariables");
+//        process.print();
         replaceHeaders();
         replaceJson();
         replaceQuery();
-        runRequest();
-        process.print();
+        run();
+//        process.print();
         validate();
     }
 
