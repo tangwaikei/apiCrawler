@@ -18,11 +18,15 @@ public class ApiTest {
         if(null != inputStream) {
             String env = "pro";//System.getenv("env");
             TestCaseProcess process = new TestCaseProcess(env);
-            TestCaseModel testCaseModel = TestCaseModel.load2(inputStream);
+            TestStepModel testCaseModel = TestStepModel.load(inputStream);
             testCaseModel.run(process);
         }
     }
 
+    /**
+     * 将testcase作为测试参数
+     * @return
+     */
     static Stream<Arguments> loadTestCases() {
         return Stream.of(
                 Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\shopCrawler.yaml")),

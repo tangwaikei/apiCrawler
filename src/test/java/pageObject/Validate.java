@@ -7,7 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 
-public class NewValidate {
+public class Validate {
     public Map<String, List<String>> validate;
 
     public void validate() {

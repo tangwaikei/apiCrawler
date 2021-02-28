@@ -3,29 +3,19 @@ package pageObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.List;
 
-public class TestCaseModel {
+public class TestStepModel {
     public Config config;
     public List<TestStep> testSteps;
 
-    public static TestCaseModel load(String path) throws IOException {
+    public static TestStepModel load(InputStream inputStream) throws IOException {
         //处理config的param
         //传递给testSteps
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        TestCaseModel model = new TestCaseModel();
-        return mapper.readValue(new File(path), model.getClass());
-    }
-
-    public static TestCaseModel load2(InputStream inputStream) throws IOException {
-        //处理config的param
-        //传递给testSteps
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        TestCaseModel model = new TestCaseModel();
+        TestStepModel model = new TestStepModel();
         return mapper.readValue(inputStream, model.getClass());
     }
 
