@@ -35,32 +35,32 @@ testSteps:
         name: 精选推荐
         variables:
             currentPage: 1
-        testcase: home\jingxuantuijian.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\jingxuantuijian.yaml
     -
         name: 精选推荐翻页
         variables:
             currentPage: 2
-        testcase: home\jingxuantuijian.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\jingxuantuijian.yaml
     -
         name: goodsDetail
-        testcase: shoppingCart\goodsDetailIntoCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: shoppingCart\addIntoShoppingCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
     -
         name: 大牌特卖
         variables:
             currentPage: 1
             tabId: ${tabId1}
-        testcase: home\homeOtherTabs.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\homeOtherTabs.yaml
     -
         name: 大牌特卖翻页
         variables:
             currentPage: 2
             tabId: ${tabId1}
-        testcase: home\homeOtherTabs.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\homeOtherTabs.yaml
         extract:
             code: "$.code"
             length: "$.data.contents.length()"
@@ -74,29 +74,29 @@ testSteps:
                 goodsId: ["String", 0]
     -
         name: goodsDetail
-        testcase: shoppingCart\goodsDetailIntoCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: shoppingCart\addIntoShoppingCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
     -
         name: 食品生鲜
         variables:
             currentPage: 1
             tabId: ${tabId2}
-        testcase: home\homeOtherTabs.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\homeOtherTabs.yaml
     -
         name: 食品生鲜翻页
         variables:
             currentPage: 2
             tabId: ${tabId2}
-        testcase: home\homeOtherTabs.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\home\homeOtherTabs.yaml
     -
         name: goodsDetail
-        testcase: shoppingCart\goodsDetailIntoCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: shoppingCart\addIntoShoppingCart.yaml
+        testcase: D:\Java\code\apiCrawler\src\test\resources\shoppingCart\addIntoShoppingCart.yaml

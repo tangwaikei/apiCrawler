@@ -28,15 +28,15 @@ testSteps:
         variables:
             currentPage: 1
             fenceId: ${fenceId1}
-        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml    
+        testcase: shop\list.yaml    
     -
         name: goodsDetail
-        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+        testcase: shoppingCart\addIntoShoppingCart.yaml
         validate:
             greaterThan:
                 cartId: ["Integer", 0]
@@ -45,15 +45,15 @@ testSteps:
 #        variables:
 #            currentPage: 2
 #            fenceId: ${fenceId1}
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml
+#        testcase: shop\list.yaml
 #    -
 #        name: goodsDetail
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+#        testcase: shoppingCart\goodsDetailIntoCart.yaml
 #    -
 #        name: addShoppingCart1
 #        variables:
 #            buyNumber: 1
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+#        testcase: shoppingCart\addIntoShoppingCart.yaml
 #        validate:
 #            greaterThan:
 #                cartId: ["Integer", 0]
@@ -62,15 +62,15 @@ testSteps:
 #        variables:
 #            currentPage: 1
 #            fenceId: ${fenceId2}
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml
+#        testcase: shop\list.yaml
 #    -
 #        name: goodsDetail
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+#        testcase: shoppingCart\goodsDetailIntoCart.yaml
 #    -
 #        name: addShoppingCart1
 #        variables:
 #            buyNumber: 1
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+#        testcase: shoppingCart\addIntoShoppingCart.yaml
 #        validate:
 #            greaterThan:
 #                cartId: ["Integer", 0]
@@ -79,15 +79,15 @@ testSteps:
 #        variables:
 #            currentPage: 2
 #            fenceId: ${fenceId2}
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml
+#        testcase: shop\list.yaml
 #    -
 #        name: goodsDetail
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+#        testcase: shoppingCart\goodsDetailIntoCart.yaml
 #    -
 #        name: addShoppingCart1
 #        variables:
 #            buyNumber: 1
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+#        testcase: shoppingCart\addIntoShoppingCart.yaml
 #        validate:
 #            greaterThan:
 #                cartId: ["Integer", 0]
@@ -96,15 +96,15 @@ testSteps:
 #        variables:
 #            currentPage: 1
 #            fenceId: ${fenceId3}
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml
+#        testcase: shop\list.yaml
 #    -
 #        name: goodsDetail
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+#        testcase: shoppingCart\goodsDetailIntoCart.yaml
 #    -
 #        name: addShoppingCart1
 #        variables:
 #            buyNumber: 1
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+#        testcase: shoppingCart\addIntoShoppingCart.yaml
 #        validate:
 #            greaterThan:
 #                cartId: ["Integer", 0]
@@ -113,15 +113,15 @@ testSteps:
 #        variables:
 #            currentPage: 2
 #            fenceId: ${fenceId3}
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\list.yaml
+#        testcase: shop\list.yaml
 #    -
 #        name: goodsDetail
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
+#        testcase: shoppingCart\goodsDetailIntoCart.yaml
 #    -
 #        name: addShoppingCart1
 #        variables:
 #            buyNumber: 1
-#        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
+#        testcase: shoppingCart\addIntoShoppingCart.yaml
 #        validate:
 #            greaterThan:
 #                cartId: ["Integer", 0]

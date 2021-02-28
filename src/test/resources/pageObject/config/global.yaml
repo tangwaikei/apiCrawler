@@ -1,12 +1,12 @@
 parameters:
   pro:
-    baseUrl: https://pyp-api.chuxingyouhui.com/
-    token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTUwODAwMzI2MjAzNDEzMTI1IiwiYm9keSI6IntcImlkZW50aWZpZXJcIjpcIjI1Mjc5NzYxN1wiLFwibmlja25hbWVcIjpcIumCk-eCnOeQqlwiLFwic2V4XCI6MCxcInVzZXJJZFwiOjExNTA4MDAzMjYyMDM0MTMxMjV9IiwicmFuIjotMTg5MzIzNDU0Mn0.pnkr9BW09zu7CsHhayJinE8GIW46Lph1F2bI8B9InLCTmmqafxIpb7xJ-IR884q0LwwURKa5MOR-Nwr97e4bxQ
+    baseUrl:
+    token:
     user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36
-    phpUserId: 5319124
+    phpUserId: 1
     goodsId: 1336929967480642270
-    appid: wx9b3ada98e020c31b
+    appid: 1
   test:
     user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36
-    appid: wx9b3ada98e020c31b
-    baseUrl: https://test10-pyp-api.chuxingyouhui.com/
+    appid: 1
+    baseUrl:

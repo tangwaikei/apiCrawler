@@ -22,11 +22,11 @@ public class ApiTest {
 
     static Stream<Arguments> loadTestCases() {
         return Stream.of(
-                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\shopCrawler.yaml")),
-                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\shoppingCartCalc.yaml")),
-                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\delShoppingCart.yaml")),
-                Arguments.arguments(ApiTest.class.getResourceAsStream("home\\homeSelective.yaml")),
-                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\goodsTypeCrawler.yaml"))
+                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\shopCrawler.yaml"))
+//                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\shoppingCartCalc.yaml")),
+//                Arguments.arguments(ApiTest.class.getResourceAsStream("shoppingCart\\delShoppingCart.yaml")),
+//                Arguments.arguments(ApiTest.class.getResourceAsStream("home\\homeSelective.yaml")),
+//                Arguments.arguments(ApiTest.class.getResourceAsStream("shop\\goodsTypeCrawler.yaml"))
         );
     }
 }

@@ -1,0 +1,51 @@
+config:
+    name: delShoppingCart
+testSteps:
+    -
+        name: orginalResult
+        description: 获取最原始的购物车物料
+        request:
+            url: api/knightCard/cart/v2_0/myCartResult
+            method: post
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+                appid: ${appid}
+            json:
+                list: null
+                phpUserId: ${phpUserId}
+        extract:
+            cartIdList: "$.data.list[*].saleList[*].list[*].id"
+            #jsonpath
+        export: ["cartIdList"]
+    -
+        name: delAllResult
+        description: 删除购物车所有商品
+        request:
+            url: api/knightCard/cart/v1_0/del
+            method: post
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+                appid: ${appid}
+            json:
+                ids:
+                    - ${cartIdList}
+    -
+        name: isClean
+        description: 检查是否删除干净
+        request:
+            url: api/knightCard/cart/v2_0/myCartResult
+            method: post
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+                appid: ${appid}
+            json:
+                list: null
+                phpUserId: ${phpUserId}
+        extract:
+            length: "$.data.list.length()"
