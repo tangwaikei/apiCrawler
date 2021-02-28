@@ -1,0 +1,29 @@
+name: 首页其他tab
+request:
+    url: api/knightCard/abtest/v1_0/newHomePageGoods
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        channel: 2
+        currentPage: ${currentPage}
+        pageSize: 10
+        tabId: ${tabId}
+        phpUserId: ${phpUserId}
+        type: null
+        level: 1
+        role: "leader3"
+extract:
+    code: "$.code"
+    length: "$.data.contents.length()"
+    goodsId: "$.data.contents[?( @.cps == false && @.discountPriceTitle != '秒杀价' )].goodsId" #自营商品
+export: ["goodsId"]
+validate:
+    equalTo:
+        code: ["Integer", 200]
+    greaterThan:
+        length: ["Integer", 0]
+        goodsId: ["String", 0]

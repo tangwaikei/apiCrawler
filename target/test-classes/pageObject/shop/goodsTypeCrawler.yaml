@@ -5,7 +5,7 @@ testSteps:
         name: qishiyouhuixuan
         variables: 
             fenceId: ${fenceId1}
-        testcase: shop\classification.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\classification.yaml
         extract:
             goodsTypeId1: "$.data[0].goodsTypeId"
             goodsTypeId2: "$.data[1].goodsTypeId"
@@ -17,27 +17,27 @@ testSteps:
             currentPage: 1
             fenceId: ${fenceId}
             goodsTypeId: ${goodsTypeId1}
-        testcase: shop\getGoodsByGoodsType.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\getGoodsByGoodsType.yaml
     -
         name: goodsDetail
-        testcase: shoppingCart\goodsDetailIntoCart.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: shoppingCart\addIntoShoppingCart.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml
     -
         name: 获取分类列表
         variables:
             currentPage: 2
             fenceId: ${fenceId}
             goodsTypeId: ${goodsTypeId1}
-        testcase: shop\getGoodsByGoodsType.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shop\getGoodsByGoodsType.yaml
     -
         name: goodsDetail
-        testcase: shoppingCart\goodsDetailIntoCart.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\goodsDetailIntoCart.yaml
     -
         name: addShoppingCart1
         variables:
             buyNumber: 1
-        testcase: shoppingCart\addIntoShoppingCart.yaml
+        testcase: D:\Java\code\apiCrawler\\src\test\resources\shoppingCart\addIntoShoppingCart.yaml

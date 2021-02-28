@@ -55,7 +55,7 @@ public class TestStep extends TestCase {
         if(null != testcase) {
             try{
                 ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-                TestCase testCase1 = mapper.readValue(new File(testcase), TestCase.class);
+                TestCase testCase1 = mapper.readValue(TestStep.class.getResourceAsStream(testcase), TestCase.class);
 
                 NewRequest request = testCase1.getRequest();
                 if(null != request) {
