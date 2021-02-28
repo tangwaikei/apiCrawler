@@ -1,6 +1,8 @@
 # apiCrawler
 ## 特色
+* 使用Junit5 + Rest Assured + Hamcrest + Allure搭建框架
 * 以yaml格式定义测试用例，数据驱动
+* 测试用例可随处使用${}来代表变量，执行时被替换成对应的值
 * 将常用的测试用例变成单元，不可直接执行，但可在测试步骤中多处调用，减少测试步骤的冗余
 * 支持variables/extract/validate机制，创建复杂的测试用例
 * 使用jsonPath来提取和验证json响应体
