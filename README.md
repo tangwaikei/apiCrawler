@@ -59,6 +59,18 @@ src
 #### 5. TestStepModel
 * Config config
 * List<TestStep> testSteps
+## 核心代码
+```java
+void toRunStep() {
+        loadTestCase();//加载测试用例
+        replaceVariables();//替换testcase和config里变量
+        replaceHeaders();//替换headers里的变量
+        replaceJson();//替换body的json变量
+        replaceQuery();//替换body的query变量
+        run();//运行并保存变量
+        validate();//断言
+    }
+```
 ## yaml例子
 ```yaml
 config:
