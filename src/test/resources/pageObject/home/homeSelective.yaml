@@ -1,0 +1,102 @@
+config:
+    name: homeSelective
+testSteps:
+    -
+        name: 获取所有tabId
+        request:
+            url: api/knightCard/goods/v1_0/homePageTabs
+            method: get
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+        extract:
+            jingxuantuijianTabId: "$.data[?( @.tabName == '精选推荐' )].tabId"
+            jingxuantuijianType: "$.data[?( @.tabName == '精选推荐' )].type"
+            tabId1: "$.data[?( @.tabName == '大牌特卖' )].tabId"
+            tabId2: "$.data[?( @.tabName == '食品生鲜' )].tabId"
+            tabId3: "$.data[?( @.tabName == '美妆护肤' )].tabId"
+            tabId4: "$.data[?( @.tabName == '运动户外' )].tabId"
+            tabId5: "$.data[?( @.tabName == '家居百货' )].tabId"
+            tabId6: "$.data[?( @.tabName == '鞋服箱包' )].tabId"
+            tabId7: "$.data[?( @.tabName == '数码家电' )].tabId"
+            tabId8: "$.data[?( @.tabName == '轻奢首饰' )].tabId"
+        export: ["jingxuantuijianTabId", "jingxuantuijianType",
+                "tabId1",
+                "tabId2",               
+                "tabId3",               
+                "tabId4",               
+                "tabId5",               
+                "tabId6",               
+                "tabId7",               
+                "tabId8",               
+                ]
+    -
+        name: 精选推荐
+        variables:
+            currentPage: 1
+        testcase: home\jingxuantuijian.yaml
+    -
+        name: 精选推荐翻页
+        variables:
+            currentPage: 2
+        testcase: home\jingxuantuijian.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+    -
+        name: 大牌特卖
+        variables:
+            currentPage: 1
+            tabId: ${tabId1}
+        testcase: home\homeOtherTabs.yaml
+    -
+        name: 大牌特卖翻页
+        variables:
+            currentPage: 2
+            tabId: ${tabId1}
+        testcase: home\homeOtherTabs.yaml
+        extract:
+            code: "$.code"
+            length: "$.data.contents.length()"
+            goodsId: "$.data.contents[?( @.cps == false && @.discountPriceTitle != '秒杀价' )].goodsId" #自营商品
+        export: ["goodsId"]
+        validate:
+            equalTo:
+                code: ["Integer", 200]
+            greaterThan:
+                length: ["Integer", 0]
+                goodsId: ["String", 0]
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+    -
+        name: 食品生鲜
+        variables:
+            currentPage: 1
+            tabId: ${tabId2}
+        testcase: home\homeOtherTabs.yaml
+    -
+        name: 食品生鲜翻页
+        variables:
+            currentPage: 2
+            tabId: ${tabId2}
+        testcase: home\homeOtherTabs.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml

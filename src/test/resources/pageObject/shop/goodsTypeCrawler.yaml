@@ -1,0 +1,43 @@
+config:
+    name: goodsTypeCrawler
+testSteps:
+    -
+        name: qishiyouhuixuan
+        variables: 
+            fenceId: ${fenceId1}
+        testcase: shop\classification.yaml
+        extract:
+            goodsTypeId1: "$.data[0].goodsTypeId"
+            goodsTypeId2: "$.data[1].goodsTypeId"
+            goodsTypeId3: "$.data[2].goodsTypeId"
+            goodsTypeId4: "$.data[3].goodsTypeId"           
+    -
+        name: 获取分类列表
+        variables:
+            currentPage: 1
+            fenceId: ${fenceId}
+            goodsTypeId: ${goodsTypeId1}
+        testcase: shop\getGoodsByGoodsType.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+    -
+        name: 获取分类列表
+        variables:
+            currentPage: 2
+            fenceId: ${fenceId}
+            goodsTypeId: ${goodsTypeId1}
+        testcase: shop\getGoodsByGoodsType.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml

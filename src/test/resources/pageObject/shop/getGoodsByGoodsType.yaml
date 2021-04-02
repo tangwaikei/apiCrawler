@@ -1,0 +1,30 @@
+name: classificationList
+request:
+    url: api/knightCard/goods/v3_0/getGoodsByGoodsType
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        currentPage: ${currentPage}
+        fenceId: ${fenceId}
+        goodsTypeId: ${goodsTypeId}
+        isRequest: 1
+        level: 1
+        pageSize: 10
+        phpUserId: ${phpUserId}
+        role: "leader3"
+        sign: "string"
+extract:
+    code: "$.code"
+    length: "$.data.contents.length()"
+    goodsId: "$.data.contents[?( @.cps == false )][0].goodsId" #自营商品
+export: ["goodsId"]
+validate:
+    equalTo: 
+        code: ["Integer", 200]
+    greaterThan:
+        length: ["Integer", 0]
+        goodsId: ["String", 0]  

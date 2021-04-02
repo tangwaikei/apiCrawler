@@ -1,0 +1,127 @@
+config:
+    name: shop
+testSteps:
+    -
+        name: 获取所有fenceId
+        request:
+            url: api/knightCard/goods/v1_0/fends
+            method: get
+            headers:
+                token: ${token}
+                user-agent: ${user-agent}
+                phpUserId: ${phpUserId}
+                appid: ${appid}
+        extract:    
+            fenceId1: "$.data[?( @.fenceName == '骑士优选' )].fenceId"
+            fenceId2: "$.data[?( @.fenceName == '考拉海购' )].fenceId"
+            fenceId3: "$.data[?( @.fenceName == '名创优品' )].fenceId"
+            fenceId4: "$.data[?( @.fenceName == '苏宁易购' )].fenceId"
+            fenceId5: "$.data[?( @.fenceName == '骑士国际' )].fenceId"
+        export: ["fenceId1",
+                "fenceId2",               
+                "fenceId3",               
+                "fenceId4",               
+                "fenceId5",                           
+                ]
+    -
+        name: 骑士优选
+        variables:
+            currentPage: 1
+            fenceId: ${fenceId1}
+        testcase: shop\list.yaml    
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]
+    -
+        name: 骑士优选翻页
+        variables:
+            currentPage: 2
+            fenceId: ${fenceId1}
+        testcase: shop\list.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]
+    -
+        name: 考拉海购
+        variables:
+            currentPage: 1
+            fenceId: ${fenceId2}
+        testcase: shop\list.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]
+    -
+        name: 考拉海购翻页
+        variables:
+            currentPage: 2
+            fenceId: ${fenceId2}
+        testcase: shop\list.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]
+    -
+        name: 名创优品
+        variables:
+            currentPage: 1
+            fenceId: ${fenceId3}
+        testcase: shop\list.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]
+    -
+        name: 名创优品翻页
+        variables:
+            currentPage: 2
+            fenceId: ${fenceId3}
+        testcase: shop\list.yaml
+    -
+        name: goodsDetail
+        testcase: shoppingCart\goodsDetailIntoCart.yaml
+    -
+        name: addShoppingCart1
+        variables:
+            buyNumber: 1
+        testcase: shoppingCart\addIntoShoppingCart.yaml
+        validate:
+            greaterThan:
+                cartId: ["Integer", 0]

@@ -1,0 +1,14 @@
+name: goodsDetail
+request:
+    url: api/knightCard/goods/v2_0/goodsDetail
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        goodsId: ${goodsId}
+        goodsOrderPreList: []
+        phpUserId: ${phpUserId}
+        sign: "string"

@@ -1,0 +1,21 @@
+name: goodsDetail
+request:
+    url: api/knightCard/goods/v2_0/goodsDetail
+    method: post
+    headers:
+        token: ${token}
+        user-agent: ${user-agent}
+        phpUserId: ${phpUserId}
+        appid: ${appid}
+    json:
+        goodsId: ${goodsId}
+        goodsOrderPreList: []
+        phpUserId: ${phpUserId}
+        sign: "string"
+extract:
+    pageAbTest: "$.data.abflag"
+    goodsProId0: "$.data.proList[0].goodsProId"
+    goodsProValueId0: "$.data.proList[0].values[?(@.selectStatus==1 && @.canStatus==1 && @.onSale==1)].goodsProValueId"
+    goodsProId1: "$.data.proList[1].goodsProId"
+    goodsProValueId1: "$.data.proList[1].values[?(@.selectStatus==1 && @.canStatus==1 && @.onSale==1)].goodsProValueId"
+export: ["pageAbTest", "goodsProId0", "goodsProValueId0", "goodsProId1", "goodsProValueId1"]
